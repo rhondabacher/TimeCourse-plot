@@ -35,7 +35,7 @@ server <- function(input, output) {
   
   
   output$plot <- renderPlot({
-    par(mfrow=c(2,2),cex.lab=1.6, cex.axis=1.4, cex.main=1.7, mar=c(5,5,2,1.5))	
+    par(mfrow=c(2,2),cex.lab=1.6, cex.axis=1.4, cex.main=1.7, mar=c(5,5,2,2))	
     plot(1:101, data.norm.human[input$gene,]-1, pch=20, col=day.col.pool.h, main=paste0(input$gene,", human"), 
          ylab="Normalized Expression", xlab="Hour")
     

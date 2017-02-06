@@ -16,7 +16,7 @@ To run, it requires the following packages: shiny
 
 
 ### Run the app
-To launch WaveCrest GUI, in R run:
+To launch the app, in R run:
 > library(shiny)
 
 > runGitHub('rhondabacher/TimeCourse-plot')
