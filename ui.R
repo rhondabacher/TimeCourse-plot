@@ -6,11 +6,12 @@ shinyUI(fluidPage(
   # Application title
   
       column(2,
-              textInput("gene", "Gene Name:", "T")),
+		  textInput("gene", "Gene Name:", "T")),
+
               
-      column(5,
+      column(10,
              # Show a plot of the generated distribution
-             mainPanel(plotOutput('plot')))	   
+             mainPanel(plotOutput('plot'),  width = "100%"))	   
 
 
 ))

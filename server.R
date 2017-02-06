@@ -1,4 +1,7 @@
-server <- function(input, output) {
+shinyServer(function(input, output, session) {
+	
+
+	
   pool.in <- read.csv("~/Desktop/HUMAN_normEC.csv",row.names=1)
   data.norm.human <- data.matrix(pool.in)+1
   
@@ -6,6 +9,11 @@ server <- function(input, output) {
   data.norm.mouse <- data.matrix(pool.in)+1
   rownames(data.norm.mouse) <- toupper(rownames(data.norm.mouse))
   
+  # allchoices <- intersect(rownames(data.norm.mouse), rownames(data.norm.human))
+  
+ # updateSelectizeInput(session, 'gene', choices = allchoices, server = TRUE)
+
+   
   cnames <- colnames(data.norm.human)
   h.ind <- as.numeric(substr(cnames,2,4))
   h.ind; length(h.ind)
@@ -35,7 +43,7 @@ server <- function(input, output) {
   
   
   output$plot <- renderPlot({
-    par(mfrow=c(2,2),cex.lab=1.6, cex.axis=1.4, cex.main=1.7, mar=c(5,5,2,2))	
+    par(mfrow=c(2,2), cex=1.5, cex.lab=1, cex.axis=1, cex.main=1.1, mar=c(6,6,2,2))	
     plot(1:101, data.norm.human[input$gene,]-1, pch=20, col=day.col.pool.h, main=paste0(input$gene,", human"), 
          ylab="Normalized Expression", xlab="Hour")
     
@@ -49,5 +57,5 @@ server <- function(input, output) {
     plot(1:97, log(data.norm.mouse[input$gene,]), pch=20, col=day.col.pool.m, main=paste0(input$gene,", mouse"), 
          ylab="Log Normalized Expression", xlab="Hour")
 
-  })
-}
+  }, height=700, width=1000)
+})
