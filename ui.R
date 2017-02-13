@@ -9,21 +9,17 @@ shinyUI(fluidPage(
       column(4,
 		  textInput("gene", "Gene Name:", "T"),
 		   br(),
-		   htmlOutput("text1")),
+		   htmlOutput("text1"),
+		   br(),
+		   textInput("miRNA", "miRNA Name:", "hsa-miR-25-3p")),
 
               
-      column(8,
+      column(8, 
              # Show a plot of the generated distribution
-             mainPanel(plotOutput('plot'),  width = "100%"))),
-	 br(),
-	 br(),
-     fluidRow(
-         column(4,
-        		  textInput("miRNA", "miRNA Name:", "hsa-miR-25-3p")),
-
-		br(),
-		br(),
-         column(8,
-                # Show a plot of the generated distribution
-                mainPanel(plotOutput('plot2'),  width = "100%")))
+             mainPanel(plotOutput('plot'),  width = "100%"),
+			 hr(size="100"),
+			 br(),
+			 hr(size="100"),
+			 br(),
+			 mainPanel(plotOutput('plot2'),  width = "100%")))
 ))
