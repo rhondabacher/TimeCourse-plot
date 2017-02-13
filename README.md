@@ -1,9 +1,17 @@
 # Plot genes from mouse and human time course
 
 
-This shiny app expects that you have the normalized data on your desktop with the names:
+This shiny app expects that you have a folder on your Desktop names VizShinyFiles with the following files:
 
-HUMAN_normEC.csv and MOUSE_normEC.csv
+HUMAN_normEC.csv 
+
+MOUSE_normEC.csv
+
+miRNAhuman_normEC
+
+Human_PeakSummary.csv
+
+MOUSE_normEC.csv
 
 Entering a gene name will output gene expression plots for each the time course datasets on the raw and log scale.
 
