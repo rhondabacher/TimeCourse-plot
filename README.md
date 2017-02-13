@@ -11,7 +11,7 @@ miRNAhuman_normEC
 
 Human_PeakSummary.csv
 
-MOUSE_normEC.csv
+miRNAhuman_PeakSummary.csv
 
 Entering a gene name will output gene expression plots for each the time course datasets on the raw and log scale.
 
