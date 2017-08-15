@@ -27,16 +27,16 @@ shinyServer(function(input, output, session) {
   
 output$plot <- renderPlot({
  par(mfrow=c(2,2), cex=1.5, cex.lab=1, cex.axis=1, cex.main=1.1, mar=c(4,4,1,1), mgp=c(2,1,0))
-   plot(1:101, data.norm.human[input$gene,]-1, pch=20, col="red", main=paste0(input$gene,", human"),
+   plot(1:ncol(data.norm.human), data.norm.human[input$gene,]-1, pch=20, col="red", main=paste0(input$gene,", human"),
             ylab="Normalized Expr.", xlab="Hour")
 
-   plot(1:97, data.norm.mouse[input$gene,]-1, pch=20, col="blue", main=paste0(ognames[input$gene],", mouse"),
+   plot(1:ncol(data.norm.mouse), data.norm.mouse[input$gene,]-1, pch=20, col="blue", main=paste0(ognames[input$gene],", mouse"),
           ylab="Normalized Expr.", xlab="Hour")
     
-   plot(1:101, log(data.norm.human[input$gene,]), pch=20, col="red", main=paste0(input$gene,", human"),
+   plot(1:ncol(data.norm.human), log(data.norm.human[input$gene,]), pch=20, col="red", main=paste0(input$gene,", human"),
           ylab="Log Normalized Expr.", xlab="Hour")
      
-   plot(1:97, log(data.norm.mouse[input$gene,]), pch=20, col="blue", main=paste0(ognames[input$gene],", mouse"),
+   plot(1:ncol(data.norm.mouse), log(data.norm.mouse[input$gene,]), pch=20, col="blue", main=paste0(ognames[input$gene],", mouse"),
           ylab="Log Normalized Expr.", xlab="Hour")
 
 }, height=1000, width=1300)
@@ -101,11 +101,11 @@ output$plot2 <- renderPlot({
 	else{
        par(mfrow=c(2,1), cex=1.5, cex.lab=1, cex.axis=1, cex.main=1.1, mar=c(4,4,1,1), mgp=c(2,1,0))
        
-	   plot(1:89, miRNAh.data.in[input$miRNA,]-1, pch=20, col="red", main=paste0(input$miRNA,", human"),
+	   plot(1:ncol(miRNAh.data.in), miRNAh.data.in[input$miRNA,]-1, pch=20, col="red", main=paste0(input$miRNA,", human"),
             ylab="Normalized Expression", xlab="Hour")
 
 
-	   plot(1:89, log(miRNAh.data.in[input$miRNA,]), pch=20, col="red", main=paste0(input$miRNA,", human"),
+	   plot(1:ncol(miRNAh.data.in), log(miRNAh.data.in[input$miRNA,]), pch=20, col="red", main=paste0(input$miRNA,", human"),
 	        ylab="Log Normalized Expression", xlab="Hour")
 		}
 
