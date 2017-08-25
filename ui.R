@@ -1,5 +1,5 @@
 library(shiny)
-
+options(shiny.maxRequestSize=500*1024^2) 
 shinyUI(fluidPage(
   
   titlePanel("Plot genes from mouse and human TC data:"),
